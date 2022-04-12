@@ -8,16 +8,20 @@
     <ul>
         {% if not lower %}
         <li>Username need at least a lowercase</li>
+        <p>Please choose a new username.</p>
         {% endif %}
         {% if not upper %}
         <li>Username need at least an uppercase</li>
+        <p>Please choose a new username.</p>
         {% endif %}
         {% if not num_end %}
         <li>Username need at least a number</li>
+        <p>Please choose a new username.</p>
         {% endif %}
+        
     </ul>
   
-    <p>Please choose a new username.</p>
+    
     <br>
     <p>Click Home Page or <a href="{{url_for('index')}}">HERE</a> to go back to our Login Page</p>
 </div>
