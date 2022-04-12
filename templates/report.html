@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container bg-light">
+    {% if report %}
+    <p>Username's accepted</p>
+    {% endif %}
+    <ul>
+        {% if not lower %}
+        <li>Username need at least a lowercase</li>
+        {% endif %}
+        {% if not upper %}
+        <li>Username need at least an uppercase</li>
+        {% endif %}
+        {% if not num_end %}
+        <li>Username need at least a number</li>
+        {% endif %}
+    </ul>
+  
+    <p>Please choose a new username.</p>
+    <br>
+    <p>Click Home Page or <a href="{{url_for('index')}}">HERE</a> to go back to our Login Page</p>
+</div>
+
+{% endblock %}
