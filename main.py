@@ -41,7 +41,7 @@ def thank_you():
 
 
 class InfoForm(FlaskForm):
-    breed = StringField('What breed are you?')
+    breed = StringField('What event you\'re looking for?')
     submit = SubmitField('Submit')
 
 
