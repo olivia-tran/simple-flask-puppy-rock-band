@@ -8,21 +8,6 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'somethingsecure'
 
 
-class InfoForm(FlaskForm):
-    breed = StringField('What breed are you?')
-    submit = SubmitField('Submit')
-
-
-@app.route('/', methods=['GET', 'POST'])
-def index():
-    breed = False
-    form = InfoForm()
-    if form.validate_on_submit():
-        breed = form.breed.data
-        form.breed.data = ''
-    return render_template('home.html', form=form, breed=breed)
-
-
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -53,6 +38,21 @@ def thank_you():
     first = request.args.get('first')  # grab user info from the form input
     last = request.args.get('last')
     return render_template('thankyou.html', first=first, last=last)
+
+
+class InfoForm(FlaskForm):
+    breed = StringField('What breed are you?')
+    submit = SubmitField('Submit')
+
+
+@app.route('/form', methods=['GET', 'POST'])
+def get_form():
+    breed = False
+    form = InfoForm()
+    if form.validate_on_submit():
+        breed = form.breed.data
+        form.breed.data = ''
+    return render_template('form.html', form=form, breed=breed)
 
 
 @app.errorhandler(404)
